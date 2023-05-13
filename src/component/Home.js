@@ -1,18 +1,26 @@
-import React, {useState} from "react";
+import React, { useState, useEffect } from "react";
 import './Home.css';
 import Navbar from './Navbar';
-
+import Axios from 'axios';
+import Card from '../Card';
 
 export const Home = (props) => {
     const[name, setName] = useState('');
-    const[university, setUniversity] = useState('');
-    const[course, setCourse] = useState('');
-    const[selectedFile, setSelectedFile] = useState('');
+    const[posts, setPosts] = useState([]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        Axios.get('https://jsonplaceholder.typicode.com/posts')
+            .then((res) => {
+                const newPosts = res.data.map(post => [post.title, post.body]);
+                setPosts(newPosts);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
     }
+
     return(
         // body
         <div>
@@ -22,7 +30,7 @@ export const Home = (props) => {
                 <form className="upload-form" onSubmit={handleSubmit}>
                     <div className="flex-container">
                     <div className="flex-child">
-                        <label className="upload-labels" for="name">Let's Look Up Some Chatter!</label>
+                        <label className="upload-labels" htmlFor="name">Let's Look Up Some Chatter!</label>
                         <br/>
                         <input value={name} onChange={(e)=> setName(e.target.value)} type="text" id="name" className="upload-input" placeholder="Post Name"/>
                         <br/>
@@ -31,12 +39,12 @@ export const Home = (props) => {
 
                     <div className="flex-child">
                         <br/>
-                        {/* <label className="upload-labels" for="filter">Filter Your Search:</label>
+                        {/* <label className="upload-labels" htmlFor="filter">Filter Your Search:</label>
                         <br/>
                         <input value={university} onChange={(e)=> setUniversity(e.target.value)} type="text" className="upload-input" placeholder="University/School"/>
                         <br/>
                         <br/>
-                        <label className="upload-labels" for="course">Course:</label>
+                        <label className="upload-labels" htmlFor="course">Course:</label>
                         <br/>
                         <input value={course} onChange={(e)=> setCourse(e.target.value)} type="text" className="upload-input" placeholder="Course/Subject"/> */}
                     </div>
@@ -44,15 +52,22 @@ export const Home = (props) => {
                 </form>
                 <br/>
                 <br/>
+                <Card
+        title='Card Title'
+        imageUrl='https://cdn.discordapp.com/attachments/1106981555227873422/1107011761640583178/chotter-logo.png'
+        body='Card information
+        '/>
                     <table className="search-table">
                     <tr>
                         <th>Post Name</th>
                         <th>Description</th>
                     </tr>
-                    <tr>
-                        <td>I hate my job</td>
-                        <td>I don't get paid enough to do this.</td>
-                    </tr>
+                    {posts.map((post, index) => (
+                        <tr key={index}>
+                            <td>{post[0]}</td>
+                            <td>{post[1]}</td>
+                        </tr>
+                    ))}
                     </table>
             </div>
 

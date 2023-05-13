@@ -1,0 +1,65 @@
+
+ /* Card.js and Card.css was made with the help of https://www.youtube.com/watch?v=Q3I_NwaCZI8 */
+
+ .card-container{
+    width:300px;
+    overflow:hidden;
+    box-shadow:20px -5px 15px 10px;
+    transition:1s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}    
+
+.card-container:hover{
+    box-shadow:0px 0px 50px 0px;
+}
+
+.image-container img{
+    overflow:hidden;
+    height: 200px;
+
+}
+
+.card-content{
+    margin:1rem;
+    margin-top: 0.5rem;
+
+}
+
+h3,p{
+    margin:0;
+    padding:0;
+
+}
+
+.card-title{
+    margin-bottom:0.5rem;
+
+}
+
+.button{
+    display:flex;
+    justify-content: center;
+    /* background-color: blue; */
+}
+
+.button {
+    padding:0.5rem;
+    /* background-color:gray; */
+    border:none;
+    transition:0.2s;
+    margin-bottom:0.5rem;
+}
+
+
+.button:hover{
+    background-color: blueviolet;
+}
+
+a{
+    text-transform: uppercase;
+    color:black;
+    
+}
