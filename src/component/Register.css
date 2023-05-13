@@ -1,0 +1,126 @@
+.top-bar{
+    width: 100vw;
+    height: 60px;
+    left: 0px;
+    top: 0px;
+    background-color: #DAB8E7;
+}
+
+.logo-container{
+    padding-top: 5px;
+    padding-left: 20px;
+    z-index: 1;
+}
+
+.logo{
+    width: 20px;
+    height: 10px;
+}
+
+.login-image-container{
+    width: 50vw;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: left; 
+}
+
+.form-container{
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-box{
+    background-color: #F4F5F9;
+    width: 380px;
+    height: 430px;
+    border-radius: 25px;
+    text-align: center;
+}
+
+.header1-register{
+    margin-top: 30px;
+    margin-bottom: -10px;
+}
+
+input[type=email], select {
+    width: 70%;
+    padding: 12px 20px;
+    margin: 10px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    box-sizing: border-box;
+  }
+
+  input[type=password], select {
+    width: 70%;
+    padding: 12px 20px;
+    margin: 10px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    box-sizing: border-box;
+  }
+
+  button[type=submit] {
+    width: 70%;
+    background-color: #DAB8E7;
+    color: black;
+    padding: 14px 20px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+  }
+
+  input[type=text], select {
+    width: 70%;
+    padding: 12px 20px;
+    margin: 10px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    box-sizing: border-box;
+  }
+  
+  button[type=submit]:hover {
+    background-color: #b98dca;
+  }
+  
+  .header2-register{
+    margin-bottom: 10px;
+  }
+
+  .header3-register{
+    width: 70%;
+    text-align: right;
+    display: inline-block;
+  }
+  
+  .log-in-redirect-button-container{
+    width: 30%;
+    display: inline-block;
+    text-align: left;
+  }
+
+  .log-in-redirect-button{
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    text-decoration: underline;
+    font-weight: bold;
+    color: #DAB8E7;
+  }
+
+  .log-in-redirect-button:hover {
+    color: #b98dca;
+  }
+
+

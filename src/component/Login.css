@@ -1,0 +1,123 @@
+.top-bar{
+    width: 100vw;
+    height: 60px;
+    left: 0px;
+    top: 0px;
+    background-color: #DAB8E7;
+}
+
+.logo-container{
+    padding-top: 5px;
+    padding-left: 20px;
+    z-index: 1;
+}
+
+.logo{
+    width: 20px;
+    height: 10px;
+}
+
+.login-image-container{
+    width: 50vw;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: left; 
+}
+
+.form-container{
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-box{
+    background-color: #F4F5F9;
+    width: 380px;
+    height: 430px;
+    border-radius: 25px;
+    text-align: center;
+}
+
+.header1{
+    margin-top: 50px !important;
+    margin-bottom: -10px;
+}
+
+input[type=email], select {
+    width: 70%;
+    padding: 12px 20px;
+    margin: 10px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    box-sizing: border-box;
+  }
+
+  input[type=password], select {
+    width: 70%;
+    padding: 12px 20px;
+    margin: 10px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    box-sizing: border-box;
+  }
+
+  button[type=submit] {
+    width: 70%;
+    background-color: #DAB8E7;
+    color: black;
+    padding: 14px 20px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+  }
+  
+  button[type=submit]:hover {
+    background-color: #b98dca;
+  }
+  
+  .header2{
+    margin-bottom: 30px;
+  }
+
+  .header3{
+    width: 62%;
+    text-align: right;
+    display: inline-block;
+  }
+  
+  .sign-up-redirect-button-container{
+    width: 38%;
+    display: inline-block;
+    text-align: left;
+  }
+
+  .sign-up-redirect-button{
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    text-decoration: underline;
+    font-weight: bold;
+    color: #DAB8E7;
+  }
+
+  .sign-up-redirect-button:hover {
+    color: #b98dca;
+  }
+
+  .to-home{
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: white;
+  }
+
+
