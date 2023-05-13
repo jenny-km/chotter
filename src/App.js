@@ -1,3 +1,4 @@
+import react from 'react'
 import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
@@ -5,6 +6,8 @@ import Home from './component/Home';
 import Post from './component/Post';
 import Login from './component/Login';
 import Register from './component/Register';
+import PostForm from './component/PostForm';
+import PostList from './component/PostForm';
 
 
 function App() {
@@ -18,7 +21,6 @@ function App() {
           {/* <Route path="/profile" element={<Profile />} /> */}
           {/* <Route path="/logout" element={<Login />} /> */}
        </Routes>
-    
     </>
   );
 }

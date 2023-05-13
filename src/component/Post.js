@@ -1,21 +1,39 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import './Post.css';
+import Axios from 'axios';
 import Navbar from './Navbar';
 
 
 export const Post = (props) => {
-    const[name, setName] = useState('');
-    const[university, setUniversity] = useState('');
-    const[course, setCourse] = useState('');
-    const[selectedFile, setSelectedFile] = useState('');
+    const url = 'https://jsonplaceholder.typicode.com/posts';
+    const [data, setData] = useState({
+        name: "",
+        description: "",
+    });
+    const [posts, setPosts] = useState([]);
 
-    const handleSubmit = (e) => {
+    function handleSubmit(e) {
         e.preventDefault();
+        Axios.post(url, data)
+            .then((res) => {
+                console.log(res.data);
+                setPosts([...posts, res.data]); // add the new post to the existing array of posts
+            })
+            .catch((error) => {
+                console.error(error);
+            });
     }
+
+    function handleInputChange(e) {
+        const { id, value } = e.target;
+        setData((prevData) => ({
+            ...prevData,
+            [id]: value,
+        }));
+    }
+
     return(
-        // body
         <div>
-            {/* top bar */}
             <Navbar/>
             <div>
                 <form className="upload-form" onSubmit={handleSubmit}>
@@ -23,15 +41,14 @@ export const Post = (props) => {
                     <div className="flex-child">
                         <label className="upload-labels" for="name">Post Name:</label>
                         <br/>
-                        <input value={name} onChange={(e)=> setName(e.target.value)} type="text" id="name" className="upload-input"/>
+                        <input value={data.name} onChange={handleInputChange} type="text" id="name" className="upload-input"/>
                         <br/>
                         <br/>
                         <label className="upload-labels description-label" for="course">Description:</label>
                         <br/>
-                        <textarea className="description" cols="60" rows="10"></textarea>
+                        <textarea  className="description" onChange={handleInputChange} id="description" cols="60" rows="10"></textarea>
                         <br/>
                         <br/>
-                        {/* <input value={course} onChange={(e)=> setCourse(e.target.value)} type="text" /> */}
                         <button className="button" type="submit">Post</button>
                     </div>
 
@@ -41,7 +58,14 @@ export const Post = (props) => {
                     </div>
                 </form>
             </div>
-
+            <div>
+                <h2>Posts:</h2>
+                <ul>
+                    {posts.map(post => (
+                        <li key={post.id}>{post.name}: {post.description}</li>
+                    ))}
+                </ul>
+            </div>
         </div>
     )
 }
