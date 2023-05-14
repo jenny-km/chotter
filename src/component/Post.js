@@ -1,17 +1,23 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import './Post.css';
 import Navbar from './Navbar';
+import Axios from 'axios';
 
 
 export const Post = (props) => {
     const[name, setName] = useState('');
-    const[university, setUniversity] = useState('');
-    const[course, setCourse] = useState('');
-    const[selectedFile, setSelectedFile] = useState('');
+    const[description, setDescription] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
-    }
+        Axios.post('http://localhost:3001/addpost', {
+            name: name, 
+            description: description
+        }).then(()=>{
+            alert("successful insert");
+        })
+
+    };
     return(
         // body
         <div>
@@ -28,7 +34,7 @@ export const Post = (props) => {
                         <br/>
                         <label className="upload-labels description-label" for="course">Description:</label>
                         <br/>
-                        <textarea className="description" cols="60" rows="10"></textarea>
+                        <textarea value={description} onChange={(e)=> setDescription(e.target.value)} className="description" cols="60" rows="10"></textarea>
                         <br/>
                         <br/>
                         {/* <input value={course} onChange={(e)=> setCourse(e.target.value)} type="text" /> */}

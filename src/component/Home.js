@@ -1,59 +1,56 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import './Home.css';
 import Navbar from './Navbar';
+import Axios from 'axios';
 
 
 export const Home = (props) => {
     const[name, setName] = useState('');
-    const[university, setUniversity] = useState('');
-    const[course, setCourse] = useState('');
-    const[selectedFile, setSelectedFile] = useState('');
+    const[postList, setPostList] = useState([]);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    useEffect(()=> {
+        Axios.get('http://localhost:3001/getposts').then((response)=>{
+            setPostList(response.data)
+        })
+    }, []);
 
-    }
+
+
     return(
         // body
         <div>
              {/* top bar */}
              <Navbar/>
             <div>
-                <form className="upload-form" onSubmit={handleSubmit}>
+                <form className="upload-form" >
                     <div className="flex-container">
                     <div className="flex-child">
-                        <label className="upload-labels" for="name">Let's Look Up Some Chatter!</label>
+                        <label className="upload-labels" for="name">Let's Read Some Chatter!</label>
                         <br/>
-                        <input value={name} onChange={(e)=> setName(e.target.value)} type="text" id="name" className="upload-input" placeholder="Post Name"/>
+                        {/* <input value={name} onChange={(e)=> setName(e.target.value)} type="text" id="name" className="upload-input" placeholder="Post Name"/>
                         <br/>
-                        <button className="button" type="submit">Search</button>
+                        <button className="button" type="submit">Search</button> */}
+                    </div>
+                
                     </div>
 
-                    <div className="flex-child">
-                        <br/>
-                        {/* <label className="upload-labels" for="filter">Filter Your Search:</label>
-                        <br/>
-                        <input value={university} onChange={(e)=> setUniversity(e.target.value)} type="text" className="upload-input" placeholder="University/School"/>
-                        <br/>
-                        <br/>
-                        <label className="upload-labels" for="course">Course:</label>
-                        <br/>
-                        <input value={course} onChange={(e)=> setCourse(e.target.value)} type="text" className="upload-input" placeholder="Course/Subject"/> */}
+                    {postList.map((val)=>{
+                    return <div className ='card-container'>
+                        <div className ="card-content">
+                            <div className = "card-title">
+                                <h3>{val.name}</h3>
+                            </div>
+            
+                            <div className="card-body">
+                                <p>{val.description}</p>
+                            </div>
+                        </div>
                     </div>
-                    </div>
+                })}
                 </form>
+
+
                 <br/>
-                <br/>
-                    <table className="search-table">
-                    <tr>
-                        <th>Post Name</th>
-                        <th>Description</th>
-                    </tr>
-                    <tr>
-                        <td>I hate my job</td>
-                        <td>I don't get paid enough to do this.</td>
-                    </tr>
-                    </table>
             </div>
 
         </div>

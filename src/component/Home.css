@@ -1,5 +1,5 @@
 body{
-    overflow: hidden;
+  overflow-x: hidden;
 }
 
 .search-table {
@@ -21,3 +21,48 @@ body{
   tr:nth-child(even) {
     background-color: #F4F5F9;
   }
+
+
+  .card-container{
+    width:300px;
+    margin: 20px;
+    padding: 10px;
+    overflow:hidden;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    border-radius: 10px;
+    transition:1s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}    
+
+.image-container img{
+    overflow:hidden;
+    height: 200px;
+
+}
+
+.card-content{
+    margin:1rem;
+    margin-top: 0.5rem;
+
+}
+
+h3,p{
+    margin:0;
+    padding:0;
+
+}
+
+.card-title{
+    margin-bottom:0.5rem;
+
+}
+
+a{
+    text-transform: uppercase;
+    color:black;
+    
+}
+
